@@ -1,0 +1,71 @@
+<md-dialog flex="70" aria-label="Mango (Fruit)">
+  <form name="passengerForms" novalidate ng-submit="passengerForms.$valid && pfCtrl.savePassengers()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Passenger Form</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="pfCtrl.cancel()">
+          <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-content class="md-padding">
+
+      <ng-form name="passengerForm" ng-repeat="passenger in pfCtrl.passengers">
+        <div layout="row" flex="100">
+          <div flex="90" layout="row">
+            <div flex></div>
+            <md-input-container flex="20">
+              <label>Passenger Name
+                {{($index + 1)}}</label>
+              <input required maxlength="16" name="name" ng-model="passenger.name">
+              <ng-messages for="passengerForm.name.$error" ng-if='passengerForm.name.$dirty|| passengerForm.name.$touched || passengerForm.$submitted'>
+                <ng-message when="required">
+
+                  <md-tooltip md-visible="passengerForm.name.$error" md-direction="left">
+                    Fill Passengers
+                  </md-tooltip>
+                </ng-message>
+              </ng-messages>
+
+            </md-input-container>
+            <md-input-container flex="30">
+              <md-radio-group required name="gender" layout="row" ng-model="passenger.gender">
+                <md-radio-button value="M">Male</md-radio-button>
+                <md-radio-button value="F">Female</md-radio-button>
+              </md-radio-group>
+            </md-input-container>
+            <md-input-container flex="20">
+              <label>Age</label>
+              <input required name="age" type="number" max-length="2" ng-model="passenger.age">
+            </md-input-container>
+            <md-input-container flex="25">
+              <md-select ng-model="passenger.berthType">
+                <md-option ng-repeat="berth in pfCtrl.berthTypes" value="{{berth.value}}">
+                  {{berth.label}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <div flex></div>
+          </div>
+          <div flex="10">
+            <md-input-container ng-if="(($index == pfCtrl.passengers.length -1) && (pfCtrl.passengers.length <= 5))" flex layout="column" layout-align="center center">
+              <md-button ng-click="pfCtrl.addPassenger();" class="md-fab md-mini" aria-label="Add Passenger">
+                <ng-md-icon icon="add"></ng-md-icon>
+              </md-button>
+            </md-input-container>
+          </div>
+        </div>
+      </ng-form>
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button>
+        Cancel
+      </md-button>
+      <md-button class="md-primary">
+        Save
+      </md-button>
+    </div>
+  </form>
+</md-dialog>
