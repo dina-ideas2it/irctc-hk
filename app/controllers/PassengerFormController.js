@@ -56,9 +56,7 @@
 
     vm.savePassengers = function() {
       var passengers = angular.fromJson(angular.toJson(vm.passengers));
-      for(var i=0;i<passengers.length;i++){
-        var passenger = Utils.validatePassenger(passenger[i]);
-      }
+      DataService.addPassengers(passengers);
 
     //  DataService.addPassenger();
       $mdDialog.hide();

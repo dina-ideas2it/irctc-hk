@@ -40,16 +40,18 @@ function getBookNowLink() {
 
 function fillPass() {
   var tr = {};
-  tr = $('tr[id=\'addPassengerForm:psdetail:0\']');
-  tr.find('.psgn-name').val('Ramesh');
-  tr.find('.psgn-age').val(28);
-  tr.find('.psgn-gender').val('M');
-  tr.find('.psgn-berth-choice').val('UB');
-  tr = $('tr[id=\'addPassengerForm:psdetail:1\']');
-  tr.find('.psgn-name').val('Yuvaraj');
-  tr.find('.psgn-age').val(28);
-  tr.find('.psgn-gender').val('M');
-  tr.find('.psgn-berth-choice').val('MB');
+  chrome.storage.sync.get('passengers', function(data) {
+    var passengers = data.passengers || [];
+
+    for(var i= 0;i<passengers.length;i++){
+      var tr = $('tr[id=\'addPassengerForm:psdetail:'+i+'\']');
+      tr.find('.psgn-name').val(passengers[i].name);
+      tr.find('.psgn-age').val(passengers[i].age);
+      tr.find('.psgn-gender').val(passengers[i].gender);
+      tr.find('.psgn-berth-choice').val(passengers[i].berthType);
+    }
+  });
+
 
   $("#j_captcha").focus();
 }
@@ -73,7 +75,7 @@ function activateAutoFill(url){
     filluserCred();
   } else if(url=="https://www.irctc.co.in/eticketing/home"){
     fillStations();
-  } else if(url == "https://www.irctc.co.in/eticketing/mainpage.jsf" ||  url.indexOf("https://www.irctc.co.in/eticketing/trainbetweenstns.jsf") > 0){
+  } else if(url == "https://www.irctc.co.in/eticketing/mainpage.jsf" ||  url.indexOf("https://www.irctc.co.in/eticketing/trainbetweenstns.jsf") > -1){
     if($("#avlAndFareForm").length > 0){
       getBookNowLink();
     }else if($("#addPassengerForm").length > 0){

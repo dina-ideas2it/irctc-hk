@@ -2,16 +2,19 @@ app.service('DataService', function() {
   var storage = {},
     passengers = [];
 
-
-  function addPassenger(passenger) {
-    passengers.push(passenger);
-
-    chrome.storage.sync.set({
-      'passengers': passengers
-    }, function() {
-
+    chrome.storage.sync.get('passengers', function(data) {
+      passengers = data.passengers || [];
     });
-  };
+
+    function addPassengers(passengersArg) {
+      passengers = passengers.concat(passengersArg);
+
+      chrome.storage.sync.set({
+        'passengers': passengers
+      }, function() {
+
+      });
+    };
 
   function getBerthTypes() {
     var berths = [{
@@ -40,8 +43,16 @@ app.service('DataService', function() {
     return berths
   }
 
+  function getPassengers(cb){
+    chrome.storage.sync.get('passengers', function(data) {
+      passengers = data.passengers || [];
+      cb(passengers);
+    });
+  }
+
   return {
-    addPassenger: addPassenger,
-    getBerthTypes: getBerthTypes
+    addPassengers: addPassengers,
+    getBerthTypes: getBerthTypes,
+    getPassengers : getPassengers
   };
 });

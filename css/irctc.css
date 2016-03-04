@@ -49,3 +49,12 @@ md-sidenav ng-md-icon {
 .user-avatar {
   border-radius: 99%;
 }
+
+md-radio-group[name="gender"]{
+  margin-bottom: 16px;
+}
+
+user-avatar{
+  margin-top: 10px;
+  margin-right: 20px;
+}

@@ -13,7 +13,7 @@
      * @restrict
      * @description
      * //Description goes here
-     * @author Ideas2IT Technologies
+     * @author Dinakaran Santhanam
      * @copyright
      */
     function userAvatar() {
@@ -27,5 +27,37 @@
         function linkFunc(scope, el, attr, ctrl) {
 
         }
+    }
+})();
+
+
+(function() {
+    'use strict';
+
+    angular
+      .module('irctcHK')
+        .directive('hkSideMenu', hkSideMenu);
+
+    /**
+     * @ngdoc Directive
+     * @name hkSideMenu
+     * @module ModuleName
+     * @require
+     * @restrict
+     * @description
+     * //Description goes here
+     * @author Dinakaran Santhanam
+     * @copyright
+     */
+    function hkSideMenu() {
+        var directive = {
+            restrict: 'E',
+            controller: "NavigationController",
+            replace: true,
+            controllerAs: 'navCtrl',
+            templateUrl: 'app/views/partials/side-menu.html',
+        };
+
+        return directive;
     }
 })();

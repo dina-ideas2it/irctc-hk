@@ -1,4 +1,4 @@
-<md-dialog flex="70" aria-label="Mango (Fruit)">
+<md-dialog aria-label="Mango (Fruit)">
   <form name="passengerForms" novalidate ng-submit="passengerForms.$valid && pfCtrl.savePassengers()">
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -19,25 +19,38 @@
               <label>Passenger Name
                 {{($index + 1)}}</label>
               <input required maxlength="16" name="name" ng-model="passenger.name">
-              <ng-messages for="passengerForm.name.$error" ng-if='passengerForm.name.$dirty|| passengerForm.name.$touched || passengerForm.$submitted'>
+              <ng-messages
+              for="passengerForm.name.$error"
+              ng-if='passengerForm.name.$dirty|| passengerForm.name.$touched || passengerForm.$submitted'>
                 <ng-message when="required">
-
-                  <md-tooltip md-visible="passengerForm.name.$error" md-direction="left">
-                    Fill Passengers
-                  </md-tooltip>
+                Fill Passenger Name
                 </ng-message>
               </ng-messages>
 
             </md-input-container>
-            <md-input-container flex="30">
+            <md-input-container flex="35">
               <md-radio-group required name="gender" layout="row" ng-model="passenger.gender">
                 <md-radio-button value="M">Male</md-radio-button>
                 <md-radio-button value="F">Female</md-radio-button>
               </md-radio-group>
+              <ng-messages
+              for="passengerForm.gender.$error"
+              ng-if='passengerForm.gender.$dirty|| passengerForm.gender.$touched || passengerForm.$submitted'>
+                <ng-message when="required">
+                Gender Required
+                </ng-message>
+              </ng-messages>
             </md-input-container>
             <md-input-container flex="20">
               <label>Age</label>
               <input required name="age" type="number" max-length="2" ng-model="passenger.age">
+              <ng-messages
+              for="passengerForm.age.$error"
+              ng-if='passengerForm.age.$dirty|| passengerForm.age.$touched || passengerForm.$submitted'>
+                <ng-message when="required">
+                Age Required
+                </ng-message>
+              </ng-messages>
             </md-input-container>
             <md-input-container flex="25">
               <md-select ng-model="passenger.berthType">
@@ -49,7 +62,7 @@
             <div flex></div>
           </div>
           <div flex="10">
-            <md-input-container ng-if="(($index == pfCtrl.passengers.length -1) && (pfCtrl.passengers.length <= 5))" flex layout="column" layout-align="center center">
+            <md-input-container ng-if="(($index == pfCtrl.passengers.length -1) && (pfCtrl.passengers.length <= 3))" flex layout="column" layout-align="center center">
               <md-button ng-click="pfCtrl.addPassenger();" class="md-fab md-mini" aria-label="Add Passenger">
                 <ng-md-icon icon="add"></ng-md-icon>
               </md-button>
@@ -63,7 +76,7 @@
       <md-button>
         Cancel
       </md-button>
-      <md-button class="md-primary">
+      <md-button ng-click="pfCtrl.savePassengers()" class="md-primary">
         Save
       </md-button>
     </div>
