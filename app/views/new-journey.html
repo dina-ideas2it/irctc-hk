@@ -1,0 +1,81 @@
+<div ng-controller="JourneyController as jyCtrl">
+  <div role="tabpanel" aria-labelledby="New Journey" layout="row" layout-align="center center">
+    <div flex="70">
+      <md-card>
+        <md-card-content>
+          <h2>New Journey</h2>
+          <div layout="row" layout-xs="column">
+            <md-input-container class="md-block" flex>
+              <label>IRCTC username</label>
+              <input ng-model="jyCtrl.journey.username">
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+              <label>IRCTC password</label>
+              <input type="password" ng-model="jyCtrl.journey.password">
+            </md-input-container>
+          </div>
+          <div layout="row" layout-xs="column">
+            <md-autocomplete
+              flex
+              md-selected-item="jyCtrl.journey.fromStation"
+              md-search-text="jyCtrl.searchTextForFrom"
+              md-selected-item-change="jyCtrl.selectedItemChange(item)"
+              md-items="item in jyCtrl.querySearch(jyCtrl.searchTextForFrom)"
+              md-item-text="item.display"
+              md-min-length="0"
+              placeholder="From Station">
+              <md-item-template>
+                <span md-highlight-text="jyCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+              </md-item-template>
+              <!--<md-not-found ng-show="jyCtrl.searchTextForFrom">
+                No stations matching "{{jyCtrl.searchTextForFrom}}" were found.
+              </md-not-found>
+              <md-not-found ng-show="!jyCtrl.searchTextForFrom">
+                Select your boarding point
+              </md-not-found> -->
+            </md-autocomplete>
+            <md-autocomplete
+              flex
+              md-selected-item="jyCtrl.journey.toStation"
+              md-search-text="jyCtrl.searchTextForTo"
+              md-selected-item-change="jyCtrl.selectedItemChange(item)"
+              md-items="item in jyCtrl.querySearch(jyCtrl.searchTextForTo)"
+              md-item-text="item.display"
+              md-min-length="0"
+              placeholder="To Station">
+              <md-item-template>
+                <span md-highlight-text="jyCtrl.searchTextForTo" md-highlight-flags="^i">{{item.display}}</span>
+              </md-item-template>
+            </md-autocomplete>
+          </div>
+          <div layout="row" layout-xs="column">
+            <md-input-container class="md-block" flex>
+              <label>Train Number</label>
+              <input ng-model="jyCtrl.journey.trainNumber">
+            </md-input-container>
+            <md-datepicker class="journey-date" flex ng-model="jyCtrl.journey.boardingDate" md-placeholder="Enter date"></md-datepicker>
+          </div>
+          <div layout="row" layout-xs="column">
+            <md-input-container class="md-block" flex>
+              <label>Ticket type</label>
+              <md-select ng-model="jyCtrl.journey.ticketType">
+                <md-option ng-repeat="ticketType in jyCtrl.ticketTypes" value="{{ticketType.value}}">{{ticketType.label}}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container flex class="md-block">
+              <label>Class type</label>
+              <md-select ng-model="jyCtrl.journey.classType">
+                <md-option ng-repeat="class in jyCtrl.classes" value="{{class.value}}">{{class.label}}</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div layout="row" layout-align="center center" layout-wrap>
+            <md-button ng-click="jyCtrl.saveJourney();" class="md-raised md-primary">Save</md-button>
+            <md-button class="md-raised md-warn">Cancel</md-button>
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

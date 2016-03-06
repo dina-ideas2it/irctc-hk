@@ -58,3 +58,8 @@ user-avatar{
   margin-top: 10px;
   margin-right: 20px;
 }
+
+md-datepicker.journey-date{
+  margin-top:20px;
+  margin-right:0px;
+}

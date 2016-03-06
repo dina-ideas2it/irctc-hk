@@ -1,0 +1,18 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button ng-click="headerCtrl.toggleSidenav('left')" aria-label="Menu">
+      <ng-md-icon icon="menu"></ng-md-icon>
+    </md-button>
+    <h3>
+      Dashboard
+    </h3>
+    <span flex></span>
+  </div>
+  <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
+    <md-tab ng-repeat="tab in headerCtrl.tabs"
+      ng-click="headerCtrl.activateTab(tab)"
+      aria-controls="tab1-content">
+      {{tab.name}}
+    </md-tab>
+  </md-tabs>
+</md-toolbar>

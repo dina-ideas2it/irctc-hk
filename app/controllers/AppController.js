@@ -12,10 +12,10 @@
      * @module irctcHK
      * @description
      * //Description goes here
-     * @author Ideas2IT Technologies
+     * @author Dinakaran Santhanam
      * @copyright
      */
-    AppController.$inject = ['$scope', '$mdBottomSheet', '$mdSidenav', '$mdDialog'];
+    AppController.$inject = ['$scope'];
 
     /**
      * @ngdoc Controller
@@ -24,27 +24,22 @@
      * @requires
      * @description
      * //Description goes here
-     * @author Ideas2IT Technologies
+     * @author Dinakaran Santhanam
      * @copyright
      */
-    function AppController($scope, $mdBottomSheet, $mdSidenav, $mdDialog) {
-      $scope.toggleSidenav = function(menuId) {
-        $mdSidenav(menuId).toggle();
-      };
+    function AppController($scope) {
 
-      $scope.showAdd = function(ev) {
-        $mdDialog.show({
-            controller: 'PassengerFormController',
-            controllerAs: 'pfCtrl',
-            templateUrl: 'app/views/partials/passenger-form.html',
-            targetEvent: ev,
-          //  fullscreen : true
-          })
-          .then(function(answer) {
-            $scope.alert = 'You said the information was "' + answer + '".';
-          }, function() {
-            $scope.alert = 'You cancelled the dialog.';
-          });
-      };
+      var vm = this;
+
+      vm.tab = {};
+
+      $scope.$on("activateTab", function(targetScope, tab){
+        console.log(tab);
+        vm.tab = tab;
+      });
+
+      vm.fabAction = function($event, contextId){
+        $scope.$broadcast('fabAction:'+contextId, $event);
+      }
     }
 })();

@@ -16,6 +16,14 @@ app.service('DataService', function() {
       });
     };
 
+    function saveJourney(journey) {
+      chrome.storage.sync.set({
+        'journey': journey
+      }, function() {
+
+      });
+    };
+
   function getBerthTypes() {
     var berths = [{
       "value": " ",
@@ -53,6 +61,7 @@ app.service('DataService', function() {
   return {
     addPassengers: addPassengers,
     getBerthTypes: getBerthTypes,
-    getPassengers : getPassengers
+    getPassengers : getPassengers,
+    saveJourney : saveJourney
   };
 });

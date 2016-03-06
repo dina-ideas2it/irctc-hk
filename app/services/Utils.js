@@ -12,7 +12,7 @@
      * @module irctcHK
      * @description
      * //Description goes here
-     * @author Ideas2IT Technologies
+     * @author Dinakaran Santhanam
      * @copyright
      */
     Utils.$inject = [];
@@ -24,7 +24,7 @@
      * @requires
      * @description
      * //Description goes here
-     * @author Ideas2IT Technologies
+     * @author Dinakaran Santhanam
      * @copyright
      */
     function Utils() {

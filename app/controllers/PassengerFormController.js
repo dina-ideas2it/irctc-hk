@@ -12,7 +12,7 @@
    * @module ModuleName
    * @description
    * //Description goes here
-   * @author Ideas2IT Technologies
+   * @author Dinakaran Santhanam
    * @copyright
    */
   PassengerFormController.$inject = ['$scope', '$mdDialog', 'DataService', 'Utils'];
@@ -24,7 +24,7 @@
    * @requires
    * @description
    * //Description goes here
-   * @author Ideas2IT Technologies
+   * @author Dinakaran Santhanam
    * @copyright
    */
   function PassengerFormController($scope, $mdDialog, DataService, Utils) {
