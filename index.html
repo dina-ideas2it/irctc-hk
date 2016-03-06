@@ -4,96 +4,18 @@
     <link rel="stylesheet" href="libs/angular-material-icons/angular-material-icons.css">
     <link rel="stylesheet" href="css/irctc.css">
   </head>
-  <body layout="row" ng-controller="AppController">
+  <body layout="row" ng-controller="AppController as appCtrl">
     <hk-side-menu></hk-side-menu>
 
     <div layout="column" class="relative" layout-fill role="main">
-      <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+      <md-button md-fixed class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="appCtrl.fabAction($event, appCtrl.tab.id)">
         <ng-md-icon icon="add"></ng-md-icon>
       </md-button>
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <md-button ng-click="toggleSidenav('left')" aria-label="Menu">
-            <ng-md-icon icon="menu"></ng-md-icon>
-          </md-button>
-          <h3>
-            Dashboard
-          </h3>
-          <span flex></span>
-        </div>
-        <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
-          <md-tab id="tab1" aria-controls="tab1-content">
-            Latest
-          </md-tab>
-          <md-tab id="tab2" aria-controls="tab2-content">
-            Favorites
-          </md-tab>
-        </md-tabs>
-      </md-toolbar>
+      <hk-header></hk-header>
       <md-content flex md-scroll-y>
         <ui-view layout="column" layout-fill layout-padding>
           <div class="inset" hide-sm></div>
-          <ng-switch on="data.selectedIndex" class="tabpanel-container">
-            <div role="tabpanel" id="tab1-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" layout="row" layout-align="center center">
-              <md-card ng-controller="PassengerListController as plCtrl" flex-gt-sm="90" flex-gt-md="80">
-                <md-card-content>
-                  <h2>Passengers</h2>
-                  <md-list>
-                      <md-list-item class="md-3-line" ng-repeat="passenger in plCtrl.passengers | filter:search">
-                        <user-avatar></user-avatar>
-                        <div class="md-list-item-text" layout="column">
-                          <h3>{{ passenger.name }}</h3>
-                          <h4>Age {{ passenger.age }}</h4>
-                          <p>{{ plCtrl.genders[passenger.gender] }}</p>
-                          <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
-                        </div>
-                      </md-list-item>
-                    <md-divider></md-divider>
-                    <md-item layout class="inset">
-                      <md-button layout layout-align="start center" flex class="md-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                        More
-                      </md-button>
-                    </md-item>
-                  </md-list>
-                </md-card-content>
-              </md-card>
-            </div>
-            <div role="tabpanel" id="tab2-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" layout="row" layout-align="center center">
-              <md-card flex-gt-sm="90" flex-gt-md="80">
-                <md-card-content>
-                  <h2>Favorites</h2>
-                  <md-list>
-                    <md-item ng-repeat="item in activity | filter:search | orderBy:'-what'">
-                      <md-item-content>
-                        <div class="md-tile-left inset" hide-sm>
-                          <user-avatar></user-avatar>
-                        </div>
-                        <div class="md-tile-content">
-                          <h3>{{item.what}}</h3>
-                          <h4>{{item.who}}</h4>
-                          <p>
-                            {{item.notes}}
-                          </p>
-                        </div>
-                      </md-item-content>
-                      <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
-                      <md-divider hide-gt-sm ng-if="!$last"></md-divider>
-                    </md-item>
-                    <md-divider></md-divider>
-                    <md-item layout class="inset">
-                      <md-button layout layout-align="start center" flex class="md-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                        More
-                      </md-button>
-                    </md-item>
-                  </md-list>
-                </md-card-content>
-              </md-card>
-            </div>
-
-          </ng-switch>
-
+          <div ng-include="appCtrl.tab.url"></div>
         </ui-view>
       </md-content>
     </div>
@@ -107,11 +29,14 @@
 
     <script src="libs/angular-material-icons/angular-material-icons.min.js"></script>
 
+    <script src="app/services/Data.js"></script>
     <script src="app/app.js"></script>
     <script src="app/services/Utils.js"></script>
     <script src="app/services/DataService.js"></script>
     <script src="app/controllers/AppController.js"></script>
     <script src="app/controllers/NavigationController.js"></script>
+    <script src="app/controllers/HeaderController.js"></script>
+    <script src="app/controllers/JourneyController.js"></script>
     <script src="app/controllers/PassengerListController.js"></script>
     <script src="app/controllers/PassengerFormController.js"></script>
     <script src="app/directives/AppDirectives.js"></script>

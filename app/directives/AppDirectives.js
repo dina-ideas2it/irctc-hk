@@ -41,7 +41,7 @@
     /**
      * @ngdoc Directive
      * @name hkSideMenu
-     * @module ModuleName
+     * @module irctcHK
      * @require
      * @restrict
      * @description
@@ -56,6 +56,37 @@
             replace: true,
             controllerAs: 'navCtrl',
             templateUrl: 'app/views/partials/side-menu.html',
+        };
+
+        return directive;
+    }
+})();
+
+(function() {
+    'use strict';
+
+    angular
+      .module('irctcHK')
+        .directive('hkHeader', hkHeader);
+
+    /**
+     * @ngdoc Directive
+     * @name hkHeader
+     * @module irctcHK
+     * @require
+     * @restrict
+     * @description
+     * //Description goes here
+     * @author Dinakaran Santhanam
+     * @copyright
+     */
+    function hkHeader() {
+        var directive = {
+            restrict: 'E',
+            controller: "HeaderController",
+            replace: true,
+            controllerAs: 'headerCtrl',
+            templateUrl: 'app/views/partials/header.html',
         };
 
         return directive;

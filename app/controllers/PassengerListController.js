@@ -15,7 +15,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  PassengerListController.$inject = ['$scope', 'DataService', 'Utils'];
+  PassengerListController.$inject = ['$scope', '$mdDialog', 'DataService', 'Utils'];
 
   /**
    * @ngdoc Controller
@@ -27,7 +27,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  function PassengerListController($scope, DataService, Utils) {
+  function PassengerListController($scope, $mdDialog, DataService, Utils) {
     var vm = this;
 
     vm.passengers = [];
@@ -47,6 +47,24 @@
       "WS": "Window"
     };
 
+    $scope.$on("fabAction:passengers", function($evt, param){
+      vm.showPassengersForm(param);
+    });
+
+    vm.showPassengersForm = function(ev) {
+      $mdDialog.show({
+          controller: 'PassengerFormController',
+          controllerAs: 'pfCtrl',
+          templateUrl: 'app/views/partials/passenger-form.html',
+          targetEvent: ev,
+        //  fullscreen : true
+        })
+        .then(function(answer) {
+          $scope.alert = 'You said the information was "' + answer + '".';
+        }, function() {
+          $scope.alert = 'You cancelled the dialog.';
+        });
+    };
 
     function init() {
       DataService.getPassengers(function(data) {
