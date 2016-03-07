@@ -83,9 +83,19 @@ function init(){
   var joou = {"boardingDate":{},"classType":"SL","fromStation":{"display":"CHENNAI CENTRAL - MAS","value":"chennai central - mas"},"journeyDate":"07-03-2016","password":"daf474","ticketType":"CK","toStation":{"display":"ERODE JN - ED","value":"erode jn - ed"},"trainNumber":"12671","username":"dineshvgp"};
   chrome.storage.sync.get("journey", function (obj){
     console.log(JSON.stringify(obj));
-    activateAutoFill(currentUrl, joou);
+    activateAutoFill(currentUrl, obj.journey);
   });
-  activateAutoFill(currentUrl, joou);
+//  activateAutoFill(currentUrl, joou);
 }
 
 init();
+
+
+function testingCallFromBackground(){
+  alert('hello world');
+}
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(request);
+  });
