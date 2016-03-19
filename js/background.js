@@ -13,12 +13,12 @@ chrome.webRequest.onBeforeRequest.addListener(function(request) {
 
 function monitorCompletedRequest() {
   function addRequestCompleteListener() {
-    alert('sdsdsdsd');
     chrome.webRequest.onCompleted.removeListener(addRequestCompleteListener);
     chrome.tabs.query({
       active: true,
       currentWindow: true
     }, function(tabs) {
+        console.log(tabs);
       chrome.tabs.sendMessage(tabs[0].id, {
         invoke: "hello"
       }, function(response) {

@@ -8,7 +8,7 @@
     <hk-side-menu></hk-side-menu>
 
     <div layout="column" class="relative" layout-fill role="main">
-      <md-button md-fixed class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="appCtrl.fabAction($event, appCtrl.tab.id)">
+      <md-button md-fixed ng-show="appCtrl.tab.id=='passengers'" class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="appCtrl.fabAction($event, appCtrl.tab.id)">
         <ng-md-icon icon="add"></ng-md-icon>
       </md-button>
       <hk-header></hk-header>
@@ -39,6 +39,7 @@
     <script src="app/controllers/JourneyController.js"></script>
     <script src="app/controllers/PassengerListController.js"></script>
     <script src="app/controllers/PassengerFormController.js"></script>
+    <script src="app/controllers/PaymentInfoController.js"></script>
     <script src="app/directives/AppDirectives.js"></script>
 
   </body>

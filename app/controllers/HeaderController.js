@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-      .module('irctcHK')
-      .controller('HeaderController', HeaderController);
+        .module('irctcHK')
+        .controller('HeaderController', HeaderController);
 
     /**
      * @ngdoc Injector
@@ -28,30 +28,34 @@
      * @copyright
      */
     function HeaderController($scope, $mdSidenav, $mdDialog) {
-      var vm = this;
+        var vm = this;
 
-      vm.tabs = [{
-        "id" : "new-journey",
-        "name" : "New Journey",
-        "url" : "app/views/new-journey.html"
-      }, {
-        "id" : "passengers",
-        "name" : "Saved Passengers",
-        "url" : "app/views/passengers.html"
-      }]
+        vm.tabs = [{
+            "id": "new-journey",
+            "name": "New Journey",
+            "url": "app/views/new-journey.html"
+        }, {
+            "id": "passengers",
+            "name": "Saved Passengers",
+            "url": "app/views/passengers.html"
+        }, {
+            "id": "payment",
+            "name": "Payment Details",
+            "url": "app/views/payment.html"
+        }]
 
-      vm.toggleSidenav = function(menuId) {
-        $mdSidenav(menuId).toggle();
-      };
+        vm.toggleSidenav = function(menuId) {
+            $mdSidenav(menuId).toggle();
+        };
 
-      vm.activateTab = function(tab){
-        $scope.$emit("activateTab", tab);
-      }
+        vm.activateTab = function(tab) {
+            $scope.$emit("activateTab", tab);
+        }
 
-      function init(){
-        vm.activateTab(vm.tabs[0]);
-      }
+        function init() {
+            vm.activateTab(vm.tabs[0]);
+        }
 
-      init();
+        init();
     }
 })();

@@ -1,0 +1,45 @@
+<md-card>
+  <md-card-content>
+    <h2>Card Details</h2>
+    <div layout="row" layout-xs="column">
+        <md-input-container class="md-block" flex>
+          <label>Ticket type</label>
+          <md-select ng-model="piCtrl.payment.cardType">
+            <md-option ng-repeat="cardType in piCtrl.cardTypes" value="{{cardType.value}}">{{cardType.label}}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label>Card Number</label>
+          <input ng-model="piCtrl.payment.cardNumber">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-xs="column">
+
+        <md-input-container class="md-block" flex>
+          <label>Month</label>
+          <md-select ng-model="piCtrl.payment.month">
+            <md-option ng-repeat="month in piCtrl.months" value="{{month.value}}">{{month.label}}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label>Year</label>
+          <input ng-model="piCtrl.payment.year" placeholder="YYYY">
+        </md-input-container>
+
+
+
+       <md-input-container class="md-block">
+         <label>CVV</label>
+         <input type="password" ng-model="piCtrl.payment.cvv">
+       </md-input-container>
+
+
+    </div>
+    <div layout="row" layout-xs="column">
+       <md-input-container class="md-block" flex>
+         <label>Name</label>
+         <input ng-model="piCtrl.payment.name">
+       </md-input-container>
+    </div>
+  </md-card-content>
+</md-card>

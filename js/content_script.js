@@ -49,12 +49,18 @@ function fillPass(journey) {
       tr.find('.psgn-gender').val(passengers[i].gender);
       tr.find('.psgn-berth-choice').val(passengers[i].berthType);
     }
+    $("input[id=\"addPassengerForm:mobileNo\"]").val(journey.phoneNumber);
   });
   $("#j_captcha").focus();
+  $("#j_captcha").blur(function(){
+      $("input#validate").click();
+  });
 }
 
-function makeItPay(){
-  $("#NETBANKING").click();
+function makeItPay(journey){
+  var payment = journey.paymentInfo;
+
+  $("#"+payment.type).click();
   j.each(function(index, elm){
     if(elm.value === '36'){
       $(elm).click();
@@ -78,24 +84,39 @@ function activateAutoFill(url, journey){
   }
 }
 
+
+function getjourneyDetails(cb){
+chrome.storage.sync.get("journey", function (obj){
+  //console.log(JSON.stringify(obj));
+  cb(obj.journey)
+});
+}
+
+
 function init(){
   var currentUrl = window.location.href;
   var joou = {"boardingDate":{},"classType":"SL","fromStation":{"display":"CHENNAI CENTRAL - MAS","value":"chennai central - mas"},"journeyDate":"07-03-2016","password":"daf474","ticketType":"CK","toStation":{"display":"ERODE JN - ED","value":"erode jn - ed"},"trainNumber":"12671","username":"dineshvgp"};
-  chrome.storage.sync.get("journey", function (obj){
-    console.log(JSON.stringify(obj));
-    activateAutoFill(currentUrl, obj.journey);
-  });
+  getjourneyDetails(function(journey){
+    activateAutoFill(currentUrl, journey);
+  })
 //  activateAutoFill(currentUrl, joou);
 }
 
 init();
 
+function clickBooknow(journey){
+    //var elmId = "a#12686-SL-CK-1";
 
-function testingCallFromBackground(){
-  alert('hello world');
+    var elmId = "a#"+journey.trainNumber+"-"+journey.classType+"-"+journey.ticketType+"-0"
+    $(elmId)[0].click();
+}
+
+function initiateBookNowLink(){
+    getjourneyDetails(clickBooknow);
 }
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(request);
+    initiateBookNowLink();
   });
