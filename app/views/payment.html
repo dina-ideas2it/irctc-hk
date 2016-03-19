@@ -4,8 +4,23 @@
       <md-card>
         <md-card-content>
           <h2>Payment Details</h2>
+          <md-input-container class="md-block" flex>
+            <label>Payment Type</label>
+            <md-select ng-model="piCtrl.payment.paymentType">
+              <md-option ng-repeat="debit in piCtrl.debits" value="{{debit.value}}">{{debit.label}}</md-option>
+            </md-select>
+          </md-input-container>
+          <div layout="row" layout-align="center center" layout-wrap>
+              <md-input-container class="md-block" flex>
+                <label>Bank</label>
+                <md-select ng-model="piCtrl.payment.bank">
+                  <md-option ng-repeat="debit in piCtrl.debits" value="{{debit.value}}">{{debit.label}}</md-option>
+                </md-select>
+              </md-input-container>
+          </div>
           <div layout="row" layout-align="center center" layout-wrap>
             <div ng-include="'app/views/partials/card-form.html'"
+          </div>
           </div>
           <div layout="row" layout-align="center center" layout-wrap>
             <md-button ng-click="piCtrl.savePaymentInfoForCurent();" class="md-raised md-primary">Save</md-button>

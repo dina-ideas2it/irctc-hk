@@ -46,11 +46,11 @@
 
     vm.pg = [{"value":"-1","label":"Select Bank"},{"value":"4","label":"Visa/Master Card(Powered By ICICI BANK)"},{"value":"17","label":"Visa/Master Card(Powered By CITI BANK)"},{"value":"21","label":"Visa/Master Card(Powered By HDFC BANK)"},{"value":"27","label":"American Express"},{"value":"30","label":"Visa/Master Card(Powered By AXIS BANK)"},{"value":"58","label":"RuPay Card (Powered by Kotak Bank)"}];
 
-    vm.debit = [{"value":"-1","label":"Select Bank"},{"value":"3","label":"State Bank of India"},{"value":"9","label":"Punjab National Bank"},{"value":"15","label":"Indian Bank"},{"value":"16","label":"Union Bank of India "},{"value":"19","label":"Bank of India"},{"value":"25","label":"Andhra Bank"},{"value":"26","label":"Canara Bank"},{"value":"32","label":"CITI Bank"},{"value":"41","label":"ICICI Bank"},{"value":"57","label":"HDFC Bank"},{"value":"66","label":"AXIS Bank"}];
+    vm.debits = [{"value":"-1","label":"Select Bank"},{"value":"3","label":"State Bank of India"},{"value":"9","label":"Punjab National Bank"},{"value":"15","label":"Indian Bank"},{"value":"16","label":"Union Bank of India "},{"value":"19","label":"Bank of India"},{"value":"25","label":"Andhra Bank"},{"value":"26","label":"Canara Bank"},{"value":"32","label":"CITI Bank"},{"value":"41","label":"ICICI Bank"},{"value":"57","label":"HDFC Bank"},{"value":"66","label":"AXIS Bank"}];
 
 
     vm.savePaymentInfoForCurent = function(){
-
+        console.log("hello");
     }
 
   }
