@@ -1,0 +1,274 @@
+<tbody>
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Card Type
+                    <font color="red">*</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp;
+            <select name="CardTypeSelectBox" onchange="showSurcharge(); return on_cardTypeSelect(); ">
+                <option value="SELECTED">
+                    -- Select --
+                </option>
+
+                <option value="VISA|1">Visa-Debit/Credit</option>
+
+                <option value="MC|1">Mastercard</option>
+
+            </select>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Card Number
+                    <font color="red">*</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            <!-- Changes made by Sanjiv for ELTOPUSPRD-18498 -->
+            &nbsp;
+            <input type="text" name="CardNum1" size="4" maxlength="4" onblur="showSurcharge()" onkeypress="return ValidateNum(this,event)" onkeyup="shiftfocus(this, event,document.frmPG.CardNum2)" value="">
+            <input type="text" name="CardNum2" size="4" maxlength="4" onblur="showSurcharge()" onkeypress="return ValidateNum(this,event)" onkeyup="shiftfocus(this, event,document.frmPG.CardNum3)" value="">
+            <input type="text" name="CardNum3" size="4" maxlength="4" onblur="showSurcharge()" onkeypress="return ValidateNum(this,event)" onkeyup="shiftfocus(this, event,document.frmPG.CardNum4)" value="">
+            <input type="text" name="CardNum4" size="4" maxlength="4" onblur="showSurcharge();" onkeypress="return ValidateNum(this,event)" onkeyup="shiftfocusformaestro(this, event,document.frmPG.CardNum5)" value="">
+            <!-- Changed By Nilesh Kinholkar for MAESTRO card support -->
+            <input type="text" name="CardNum5" size="3" maxlength="3" onblur="showSurcharge()" onkeypress="return ValidateNum(this,event)" value="" id="hideExp1" style="display:none">
+            <input type="hidden" name="CardNum" value="">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <font face="Verdana" size="0">(Please enter your card number without any spaces)</font>
+        </td>
+    </tr>
+    <tr>
+
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Expiry date
+                    <font color="red" id="hideExp3">*</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp;
+            <select name="ExpDtMon" onchange="showSurcharge();">
+                <option value="" selected="">MM</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select name="ExpDtYr" onchange="showSurcharge();">
+                <option value="" selected="">YYYY</option>
+
+                <option value="2016">2016</option>
+
+                <option value="2017">2017</option>
+
+                <option value="2018">2018</option>
+
+                <option value="2019">2019</option>
+
+                <option value="2020">2020</option>
+
+                <option value="2021">2021</option>
+
+                <option value="2022">2022</option>
+
+                <option value="2023">2023</option>
+
+                <option value="2024">2024</option>
+
+                <option value="2025">2025</option>
+
+                <option value="2026">2026</option>
+
+                <option value="2027">2027</option>
+
+                <option value="2028">2028</option>
+
+                <option value="2029">2029</option>
+
+                <option value="2030">2030</option>
+
+                <option value="2031">2031</option>
+
+                <option value="2032">2032</option>
+
+                <option value="2033">2033</option>
+
+                <option value="2034">2034</option>
+
+                <option value="2035">2035</option>
+
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <font face="Verdana" size="0">(Please enter expiry date provided on your card)</font>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>CVV2/CVC2 Number<font color="red" id="hideExp2">*</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp;
+            <input type="password" name="CVVNum" size="3" maxlength="3" value="" autocomplete="OFF" onkeypress="return ValidateNum(this,event)" onblur="showSurcharge();">
+            <font face="Verdana" size="1" color="#990000">&nbsp;</font>
+            <font face="Symbol" size="1" color="#990000">-------------------------------- &gt;<font></font>
+            </font>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <font face="Verdana" size="0">(CVV2/CVC2 is the three digit security code printed on the back of card)</font>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Name on Card
+                    <font color="red">&nbsp;</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp;
+            <input type="TEXT" name="NameOnCard" size="20" maxlength="80" value="" onkeypress="return ValidateName(this,event)">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <font face="Verdana" size="0">(Please enter your name specified on the card)</font>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>ATM PIN
+                    <font color="red">*&nbsp;</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp;
+            <input type="password" name="ATMPIN" id="ATMPIN" size="5" onkeypress="return ValidateNum(this,event)" maxlength="4" value="">
+            &nbsp;&nbsp;&nbsp;<input type="checkbox" name="virtualATMPIN" id="virtualATMPIN" onclick="virtualKey()">
+            <font face="Verdana" size="0">
+                Use virtual keyboard (Recommended)</font>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Purchase Amount &nbsp;<font color="red">&nbsp;</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp; INR &nbsp;&nbsp;<b>292.90</b>
+        </td>
+    </tr>
+
+    <input type="hidden" id="IsSurchargeZero" name="IsSurchargeZero" value="yes">
+
+    <tr id="hideSurcharge" name="hideSurcharge" style="display:none">
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Surcharge Amount &nbsp;<font color="red">&nbsp;</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp; INR &nbsp;&nbsp;<b>0.0</b>
+        </td>
+    </tr>
+    <tr id="hideTotalAmt" name="hideTotalAmt" style="display:none">
+        <td align="right">
+            <font face="Verdana" size="1">
+                <b>Total Txn Amount &nbsp;<font color="red">&nbsp;</font>
+                </b>
+            </font>
+        </td>
+        <td align="left">
+            &nbsp; INR &nbsp;&nbsp;<b>0.0</b>
+        </td>
+    </tr>
+    <tr>
+
+        <td align="right" id="captchaCaption1" style="display:none">
+            <font face="Verdana" size="1">
+                <b>Word Verification:</b>
+            </font>
+        </td>
+
+        <td align="center" colspan="2">
+            <font face="Verdana" size="1" id="captchaCaption2" style="display:none">
+                &nbsp;Type the characters you see in the picture below<font></font>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2" id="captchaValue1" style="display:none">
+            <img border="0" src="Captcha.jsp?captchaString=BCC39BC698C69AADE68DF3353794C76F" width="200" height="60">
+        </td>
+    </tr>
+    <tr>
+        <td align="right" id="captchaCaption3" style="display:none">
+            &nbsp;<b>
+                <font color="red">*</font>
+            </b>
+        </td>
+        <td align="left" id="captchaValue2" style="display:none">
+            &nbsp;
+            <input type="TEXT" name="CaptchaValue" size="07" maxlength="07" value="">
+        </td>
+    </tr>
+    <tr>
+        <td align="right">&nbsp;</td>
+        <td align="left">&nbsp;&nbsp;<input type="SUBMIT" value=" Pay " name="btnPay">
+            &nbsp;
+            <a href="javascript:history.go(-1)" style="font-face:Verdana;font-size:12;color:#990000">Cancel</a>&nbsp;
+            <img src="images/Visa-LogoUnitwithCARD.jpg" align="center">
+        </td>
+
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right">
+            <font size="1pt"><br></font>
+            <font face="Verdana" size="1" align="center">
+                <b>
+                    <div id="hidePay">After pressing Pay, to ensure a successful transaction, DO NOT close your browser.</div><br></b>
+            </font>
+        </td>
+    </tr>
+    <!-- <tr height=5><td></td></tr>  -->
+
+</tbody>

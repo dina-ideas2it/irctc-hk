@@ -1,0 +1,321 @@
+<div class="inside-gray-box1" style="padding-left:10px; padding-bottom:10px">
+    <div class=" Arial-blue-14"><br>Transaction Amount (<img src="/PgJsps/images/rupee_gif.gif" height="10" weight="10/">):
+        <span class="Arial-red-14">
+            <script>
+                document.write(amountDisplay('292.9'))
+            </script>292.90</span>
+        <div class="line-x"></div>
+    </div>
+    <div class="arial-12-gray" style="padding-top:10px; padding-bottom:10px">
+        <strong>Please enter the following details:</strong>
+        <b>
+            <font color="red">
+                <div id="DIS_CCR_CARD" valign="middle" align="center" style="display:none">Please enter valid Card Credentials</div>
+            </font>
+        </b>
+    </div>
+    <table width="693" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td align="left" valign="middle">
+                    <span class="arial-11-gray-text">Card number</span>
+                </td>
+                <td align="left" valign="middle">
+                    <strong>:</strong>
+                </td>
+                <td>
+                    <div class="spacer-3">
+                        <div class="float-with-text-box9">
+                            <span class="float-with-text-box3">
+                                <input name="cardNum1" type="text" autocomplete="OFF" class="textfield1" style="width: 40px;" maxlength="4" value="" onkeyup="autotab(this, document.fm_citi_credit.cardNum2)" id="CITI_CREDIT_CARD">
+                            </span>
+                        </div>
+                        <div class="float-with-text-box10">
+                            <span class="arial-11-gray-text">-</span>
+                        </div>
+                        <div class="float-with-text-box9">
+                            <span class="float-with-text-box3">
+                                <input name="cardNum2" type="text" autocomplete="OFF" class="textfield1" style="width: 40px;" maxlength="4" value="" onkeyup="autotab(this, document.fm_citi_credit.cardNum3)" id="DOB_EXP1">
+                            </span>
+                        </div>
+                        <div class="float-with-text-box10">
+                            <span class="arial-11-gray-text">-</span>
+                        </div>
+                        <div class="float-with-text-box9">
+                            <span class="float-with-text-box3">
+                                <input name="cardNum3" type="text" autocomplete="OFF" class="textfield1" style="width: 40px;" maxlength="4" value="" onkeyup="autotab(this, document.fm_citi_credit.cardNum4)" id="DOB_EXP2">
+                            </span>
+                        </div>
+                        <div class="float-with-text-box10" id="HYPHEN">
+                            <span class="arial-11-gray-text">-</span>
+                        </div>
+                        <div class="float-with-text-box9">
+                            <span class="float-with-text-box3">
+                                <input name="cardNum4" type="text" autocomplete="OFF" class="textfield1" style="width: 40px;" maxlength="4" value="" onkeyup="autotab(this, document.fm_citi_credit.HtmlMonth)" id="DOB_EXP3">
+                            </span>
+                        </div>
+                        <div class="both"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="middle">
+                    <span class="spacer-2">
+                        <span class="arial-11-gray-text">Expiry Date</span>
+                    </span>
+                </td>
+                <td align="left" valign="middle">
+                    <strong>:</strong>
+                </td>
+                <td>
+                    <div class="spacer-2">
+                        <label>
+                            <script>
+                                dropMonth("22032016");
+                            </script>
+                            <select name="HtmlMonth" id="HtmlMonth">
+                                <option value="" selected="">MM</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </label>
+                        <label>
+                            <script>
+                                dropYear('22032016', '50');
+                            </script>
+                            <select name="HtmlYear" id="HtmlYear">
+                                <option value="" selected="">YY</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                                <option value="51">51</option>
+                                <option value="52">52</option>
+                                <option value="53">53</option>
+                                <option value="54">54</option>
+                                <option value="55">55</option>
+                                <option value="56">56</option>
+                                <option value="57">57</option>
+                                <option value="58">58</option>
+                                <option value="59">59</option>
+                                <option value="60">60</option>
+                                <option value="61">61</option>
+                                <option value="62">62</option>
+                                <option value="63">63</option>
+                                <option value="64">64</option>
+                                <option value="65">65</option>
+                            </select>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="middle">
+                    <span class="spacer-2">
+                        <span class="arial-11-gray-text">Card Security Code (CVV)</span>
+                    </span>
+                </td>
+                <td align="left" valign="middle">
+                    <strong>:</strong>
+                </td>
+                <td>
+                    <div class="float-with-text-box9">
+                        <span class="float-with-text-box3">
+                            <input name="HtmlCVVNum" type="password" class="textfield1" maxlength="3">
+                        </span>
+                    </div>
+                </td>
+                <td valign="middle">
+                    <b>
+                        <font color="red">
+                            <div id="DIS_CR_CVV" style="display:none">Invalid CVV Code</div>
+                        </font>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td width="216" align="left" valign="middle">&nbsp;</td>
+                <td width="14" align="left" valign="middle">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="693" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td>
+                    <div id="DOB" style="display:none;">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td width="55%" align="left" valign="top" class="line-4">
+                                        <table width="381" border="0" cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="214" align="left" class="arial-11-gray-text">Please enter the One Time
+                                                        <br>
+                                                        Password received on your mobile</td>
+                                                    <td width="13">
+                                                        <strong>:</strong>
+                                                    </td>
+                                                    <td width="154">
+                                                        <div class="float-with-text-box6">
+                                                            <span class="float-with-text-box3">
+                                                                <input name="dobDD" type="password" class="textfield2" maxlength="6" style="width:60px;" size="120">
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <b>
+                                                            <font color="red">
+                                                                <div id="DIS_CR_DOB" style="display:none">Invalid OTP</div>
+                                                            </font>
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="40" colspan="3" align="left" valign="middle" class="arial-12-gray">
+                                                        <span class="Arial-blue-11">OTP is a single use password which is valid for 30 minutes from the time you place the request.</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="44%" align="right" valign="top">
+                                        <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="35" align="left" valign="top">
+                                                        <div class="phone"></div>
+                                                    </td>
+                                                    <td width="261" height="59" align="center" valign="top">
+                                                        <table width="96%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="left" valign="top">
+                                                                        <span class="arial-11-blue-text">Don't have an OTP? Get one now!<br>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="20" align="left" valign="top">
+                                                                        <span class="arial-11-gray-text">SMS: OTP XXXX to 52484</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="35" align="left" valign="top">
+                                                                        <span class="arial-11-gray-text">Not received an OTP?<br>
+                                                                        </span>
+                                                                        <span class="Arial-gray-11">Send SMS: OTP XXXX to 919880752484</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="35" align="left" valign="top">
+                                                                        <span class="Arial-gray-11">* XXXX represents the last four digits of your Card on which you are transacting.</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top">&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+    </table>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+        <tbody>
+            <tr>
+                <td width="230">&nbsp;</td>
+                <!--
+					<td>
+
+					<div id="Next1" style="display:block;">
+					<div class="btn-cr1">&nbsp;</div>
+					<div class="btn-cr3 cursor-point" onclick="validateCitiCreditSubmit('508125,508126,508159,508227,515566,532662,532663,533890,549177,549777,549778,549779,553682,553683,553684,508192,519860,526908,529105,529251,529252,512525,522039,518145','UNSEC_CITI_CREDIT')"><a href="#" class="white-link">>>Submit</a></div>
+					<div class="btn-cr2">&nbsp;</div>
+					</div>
+
+					<div id="Next1" style="display:block;">
+					<div class="btn-cr1">&nbsp;</div>
+					<div class="btn-cr3 cursor-point" ><a href="#" class="white-link">>>Cancel</a></div>
+					<div class="btn-cr2">&nbsp;</div>
+					</div>
+
+						</td>
+						-->
+
+                <td>
+                    <div class="buttons">
+                        <!-- Disable submit button after click -->
+                        <input
+                            type="button"
+                            alt="Submit"
+                            title="Submit"
+                            id="submitciti"
+                            class="submit_btn"
+                            onclick="validateCitiCreditSubmit('508125,508126,508159,508227,515566,532662,532663,533890,549177,549777,549778,549779,553682,553683,553684,508192,519860,526908,529105,529251,529252,512525,522039,518145','UNSEC_CITI_CREDIT')">
+                        <input type="reset" alt="Reset" title="Reset" class="reset_btn">
+                    </div>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div></div>
+    <div class="both"></div>
+</div>

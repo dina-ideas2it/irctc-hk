@@ -1,0 +1,123 @@
+<tbody><tr>
+       <td colspan="3" align="left" class="description"></td>
+     </tr>
+     <tr>
+       <td colspan="3" align="left" class="description"></td>
+     </tr>
+     <tr>
+       <td width="170" align="left" valign="top" class="label">BOI Debit Card Number <span class="red">*</span></td>
+       <td width="53%" align="left" valign="top"><input id="cnumber" name="cnumber" type="text" class="textbox cardno_textbox" value="Please enter your card number without any spaces" maxlength="19" style="width:280px;" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" autocomplete="OFF">
+                 <input type="hidden" name="cardType">
+         <input type="hidden" name="panreq" value="zp89SEIdxRzspEqkhj6W8u3U">
+         <input type="hidden" name="rdrid" value="r407lAaWWBX0Kjbpju84N4hd">
+
+		 <input type="hidden" name="reqid" value="cc_moto">		 </td>
+
+
+       <td width="18%"><a href="javascript:numpad_change()" id="switch" onclick="javascript:blur()">Virtual Numpad</a><br>
+<div id="numpad"></div>  </td>
+     </tr>
+
+     <tr>
+       <td align="left" valign="top" class="label">Name on Card <span class="red">*</span></td>
+       <td><input name="cname2" type="text" class="textbox cardno_textbox" id="cname2" value="Please enter your name specified on the card" maxlength="50" style="width:280px;" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" autocomplete="OFF">      </td>
+       <td>&nbsp;</td>
+     </tr>
+
+     <tr>
+       <td align="left" valign="top" class="label">Expiry Date<span class="red"> *</span></td>
+       <td><select name="expmon" class="selectbox" id="expmon">
+         <option value="0">MM</option>
+<option value="01" selected="">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+       </select>
+
+         <select name="expyr" class="selectbox" id="expyr">
+           <option value="0">YYYY</option>
+
+				  <option value="2016">2016</option>
+
+				  <option value="2017">2017</option>
+
+				  <option value="2018">2018</option>
+
+				  <option value="2019">2019</option>
+
+				  <option value="2020">2020</option>
+
+				  <option value="2021">2021</option>
+
+				  <option value="2022">2022</option>
+
+				  <option value="2023">2023</option>
+
+				  <option value="2024">2024</option>
+
+				  <option value="2025">2025</option>
+
+				  <option value="2026">2026</option>
+
+				  <option value="2027">2027</option>
+
+				  <option value="2028">2028</option>
+
+				  <option value="2029">2029</option>
+
+				  <option value="2030">2030</option>
+
+				  <option value="2031">2031</option>
+
+				  <option value="2032">2032</option>
+
+                 </select></td>
+       <td>&nbsp;</td>
+     </tr>
+
+     <tr>
+       <td align="left" valign="top" class="label">PIN Number <span class="red">*</span></td>
+       <td align="left" valign="top"><input name="cvv2" type="password" id="cvv2" maxlength="4" clas="textbox" style="width:45px; border:1px solid #cccccc; float:left; margin-right:8px; margin-top:4px;" autocomplete="OFF">
+
+<span style="font:11px Arial, Helvetica, sans-serif; padding:0px; margin:0px; width:150px; float:left">PIN Number entry allowed by Virtual Number Pad only</span>
+
+       </td>
+       <td><a href="javascript:numpad1_change()" onclick="javascript:blur()" id="switch1">
+	    Virtual Numpad <br></a>
+  <div id="numpad1"></div>  </td>
+     </tr>
+
+
+     <tr>
+       <td colspan="3" align="left" class="label"></td>
+     </tr>
+     <tr>
+       <td align="left" valign="top" class="label">Type the exact characters you see in the picture<span class="red"> *</span></td>
+       <td class="populatedData"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+         <tbody><tr>
+           <td><input name="Imgver" type="text" class="textbox" id="Imgver" style="height:40px; font-size:16px; line-height:15px; width:120px; padding:8;" autocomplete="OFF"></td>
+           <td width="50%" align="right"><img name="Image" src="/pgidsk/PGIImageHandler?rdrid=r407lAaWWBX0Kjbpju84N4hd" width="150" height="40" alt=""></td>
+         </tr>
+       </tbody></table></td>
+       <td class="populatedData">&nbsp;</td>
+     </tr>
+
+     <tr>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td align="left">
+         <input name="button" style="background-image:url(bank/images/cancel_button.gif); width:95px; height:34px;  border:0px; cursor:pointer;" type="button" value="" onclick="return cancelForm()"></td>
+       <td colspan="2" align="left" valign="middle"><input type="button" style="background-image:url(bank/images/pay_button.gif); width:145px; height:34px;  border:0px; cursor:pointer;" name="paynow" value="" onclick="return validateForm()"></td>
+       </tr>
+   </tbody>
