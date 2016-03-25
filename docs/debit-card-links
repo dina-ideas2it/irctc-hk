@@ -1,0 +1,49 @@
+SBI : https://securepayments.fssnet.co.in/pgwayb/paymentpage.htm
+
+IOB : https://securepayments.fssnet.co.in/pgwayc/gateway/payment/payment.jsp
+
+Punjab national : https://securepg.fssnet.co.in/pgwayc/gateway/payment/payment.jsp
+
+Indian Bank:
+
+   Needs to check radio
+   $("input#debit").click()
+
+https://securepg.fssnet.co.in/pgwayc/gateway/payment/payment.jsp?PaymentID=5658339431060850&Trantype=C
+
+Union Bank 
+
+same as Indian Bank
+
+https://securepg.fssnet.co.in/pgwayf/gateway/payment/payment.jsp?PaymentID=6030538441060850&Trantype=C
+
+
+IOB
+
+https://pgi.billdesk.com/merchant/request/IRCTCCRISBOIPaymentoption.jsp
+click radio button
+
+https://www.billdesk.com/pgidsk/ProcessPayment
+
+Andhra Bank
+https://securepg.fssnet.co.in/pgwayf/gateway/payment/payment.jsp
+radio button
+https://securepg.fssnet.co.in/pgwayf/gateway/payment/payment.jsp?PaymentID=9733840471060850&Trantype=C
+
+
+Canara Bank
+https://securepg.fssnet.co.in/pgwayf/gateway/payment/payment.jsp
+
+
+Citi Bank
+https://www.citibank.co.in/servlets/TransReq
+
+
+ICICI Bank
+https://ipay.icicibank.com/mpi/Payment.jsp
+
+HDFC Bank
+https://securepg.fssnet.co.in/pgwaya/gateway/payment/payment.jsp
+
+Axis Bank
+https://securepayments.fssnet.co.in/ipay/paymentpage.htm

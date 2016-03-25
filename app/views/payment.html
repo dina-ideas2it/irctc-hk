@@ -6,24 +6,24 @@
           <h2>Payment Details</h2>
           <md-input-container class="md-block" flex>
             <label>Payment Type</label>
-            <md-select ng-model="piCtrl.payment.paymentType">
-              <md-option ng-repeat="debit in piCtrl.debits" value="{{debit.value}}">{{debit.label}}</md-option>
+            <md-select ng-model="piCtrl.payment.paymentType" ng-change="piCtrl.changeBankList(piCtrl.payment.paymentType)">
+              <md-option ng-repeat="payment in piCtrl.paymentType" value="{{payment.value}}">{{payment.label}}</md-option>
             </md-select>
           </md-input-container>
           <div layout="row" layout-align="center center" layout-wrap>
               <md-input-container class="md-block" flex>
                 <label>Bank</label>
                 <md-select ng-model="piCtrl.payment.bank">
-                  <md-option ng-repeat="debit in piCtrl.debits" value="{{debit.value}}">{{debit.label}}</md-option>
+                  <md-option ng-repeat="bank in piCtrl.banks" value="{{bank.value}}">{{bank.label}}</md-option>
                 </md-select>
               </md-input-container>
           </div>
-          <div layout="row" layout-align="center center" layout-wrap>
+          <div layout="row" layout-align="center center" layout-wrap  ng-if="piCtrl.payment.paymentType!=='NETBANKING'">
             <div ng-include="'app/views/partials/card-form.html'"
           </div>
           </div>
           <div layout="row" layout-align="center center" layout-wrap>
-            <md-button ng-click="piCtrl.savePaymentInfoForCurent();" class="md-raised md-primary">Save</md-button>
+            <md-button ng-click="piCtrl.savePayment();" class="md-raised md-primary">Save</md-button>
             <md-button class="md-raised md-warn">Cancel</md-button>
           </div>
 

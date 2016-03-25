@@ -57,21 +57,34 @@ function fillPass(journey) {
   });
 }
 
-function makeItPay(journey){
-  var payment = journey.paymentInfo;
+function fillCard(payment) {
+    var tr = $('table[id=\'card-input-table\']');
+    tr.find('#card_type_id').val(payment.cardType);
+    tr.find('#card_no_id').val(payment.cardNumber);
+    tr.find('#card_expiry_mon_id').val(payment.month);
+    tr.find('#card_expiry_year_id').val(payment.year);
+    tr.find('#cvv_no_id').val(payment.cvv);
+    tr.find('#card_name_id').val(payment.name);
+    tr.find('#captcha_txt').focus();
+}
 
-  $("#"+payment.type).click();
-  j.each(function(index, elm){
-    if(elm.value === '36'){
-      $(elm).click();
-    }
-  })
+function makeItPay(){
+    chrome.storage.sync.get('payment', function(data) {
+        //var payment = data.payment;
+        var payment = {"paymentType":"CREDIT_CARD","bank":"21","cardType":"VISA","cardNumber":"4587963258742365","month":"05","year":"2018","cvv":"456","name":"DINAKARAN S"};
+
+        $("#"+payment.paymentType).click();
+        setTimeout(function(){
+            $("input#"+payment.paymentType+"[value='"+payment.bank+"']")[0].click();
+            fillCard(payment);
+        }, 100);
+    });
 }
 
 function activateAutoFill(url, journey){
   if(url == "https://www.irctc.co.in/eticketing/loginHome.jsf"){
     filluserCred(journey);
-  } else if(url=="https://www.irctc.co.in/eticketing/home"){
+} else if(url=="https://www.irctc.co.in/eticketing/home" || url == "https://www.irctc.co.in/eticketing/loginConfirm.jsf"){
     fillStations(journey);
   } else if(url == "https://www.irctc.co.in/eticketing/mainpage.jsf" ||  url.indexOf("https://www.irctc.co.in/eticketing/trainbetweenstns.jsf") > -1){
     if($("#avlAndFareForm").length > 0){
@@ -80,7 +93,7 @@ function activateAutoFill(url, journey){
       fillPass(journey);
     }
   } else if(url.indexOf("https://www.irctc.co.in/eticketing/jpInput.jsf") > -1){
-    makeItPay(journey);
+    makeItPay();
   }
 }
 

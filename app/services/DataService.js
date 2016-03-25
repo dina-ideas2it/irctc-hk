@@ -24,6 +24,14 @@ app.service('DataService', function() {
     });
   };
 
+  function savePayment(payment){
+      chrome.storage.sync.set({
+        'payment': payment
+      }, function() {
+
+      });
+  }
+
   function getBerthTypes() {
     var berths = [{
       "value": " ",
@@ -62,7 +70,8 @@ app.service('DataService', function() {
     addPassengers: addPassengers,
     getBerthTypes: getBerthTypes,
     getPassengers: getPassengers,
-    saveJourney: saveJourney
+    saveJourney: saveJourney,
+    savePayment: savePayment
   };
 });
 

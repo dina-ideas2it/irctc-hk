@@ -1,6 +1,3 @@
-alert('App Launched');
-
-
 chrome.webRequest.onBeforeRequest.addListener(function(request) {
   console.log(request);
   if (request.requestBody && request.requestBody.formData && request.requestBody.formData['avlAndFareForm:addtab']) {
