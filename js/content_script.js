@@ -70,8 +70,8 @@ function fillCard(payment) {
 
 function makeItPay(){
     chrome.storage.sync.get('payment', function(data) {
-        //var payment = data.payment;
-        var payment = {"paymentType":"CREDIT_CARD","bank":"21","cardType":"VISA","cardNumber":"4587963258742365","month":"05","year":"2018","cvv":"456","name":"DINAKARAN S"};
+        var payment = data.payment;
+        //var payment = {"paymentType":"CREDIT_CARD","bank":"21","cardType":"VISA","cardNumber":"4587963258742365","month":"05","year":"2018","cvv":"456","name":"DINAKARAN S"};
 
         $("#"+payment.paymentType).click();
         setTimeout(function(){
