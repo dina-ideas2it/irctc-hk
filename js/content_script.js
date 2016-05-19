@@ -39,8 +39,8 @@ function getBookNowLink(journey) {
 
 function fillPass(journey) {
   var tr = {};
-  chrome.storage.sync.get('passengers', function(data) {
-    var passengers = data.passengers || [];
+  chrome.storage.sync.get('journeyPassengers', function(data) {
+    var passengers = data.journeyPassengers || [];
 
     for(var i= 0;i<passengers.length;i++){
       var tr = $('tr[id=\'addPassengerForm:psdetail:'+i+'\']');

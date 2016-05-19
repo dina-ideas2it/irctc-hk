@@ -1,18 +1,31 @@
 app.service('DataService', function() {
   var storage = {},
-    passengers = [];
+    passengers = [],
+    passengersLookup = {};
 
   chrome.storage.sync.get('passengers', function(data) {
     passengers = data.passengers || [];
   });
 
-  function addPassengers(passengersArg) {
+  function addPassengers(passengersArg, successCb) {
     passengers = passengers.concat(passengersArg);
 
     chrome.storage.sync.set({
       'passengers': passengers
     }, function() {
+      successCb();
+    });
+  };
 
+  function addJourneyPassengers(passengerIds, successCb) {
+    var psngrs = [];
+    for(var i=0;i<passengerIds.length;i++){
+      psngrs.push(passengersLookup[passengerIds[i]]);
+    }
+    chrome.storage.sync.set({
+      'journeyPassengers': psngrs
+    }, function() {
+      successCb();
     });
   };
 
@@ -62,16 +75,23 @@ app.service('DataService', function() {
   function getPassengers(cb) {
     chrome.storage.sync.get('passengers', function(data) {
       passengers = data.passengers || [];
+      constructPassengerLookup();
       cb(passengers);
     });
   }
 
+  function constructPassengerLookup(){
+    for(var i=0;i<passengers.length;i++){
+      passengersLookup[passengers[i].id] = passengers[i];
+    }
+  }
   return {
     addPassengers: addPassengers,
     getBerthTypes: getBerthTypes,
     getPassengers: getPassengers,
     saveJourney: saveJourney,
-    savePayment: savePayment
+    savePayment: savePayment,
+    addJourneyPassengers: addJourneyPassengers
   };
 });
 

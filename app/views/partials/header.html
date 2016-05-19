@@ -8,7 +8,7 @@
     </h3>
     <span flex></span>
   </div>
-  <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
+  <md-tabs md-stretch-tabs class="md-primary" md-selected="appCtrl.tab.index">
     <md-tab ng-repeat="tab in headerCtrl.tabs"
       ng-click="headerCtrl.activateTab(tab)"
       aria-controls="tab1-content">

@@ -15,7 +15,7 @@
      * @author Dinakaran Santhanam
      * @copyright
      */
-    HeaderController.$inject = ['$scope', '$mdSidenav', '$mdDialog'];
+    HeaderController.$inject = ['$scope', '$mdSidenav', '$mdDialog', 'Utils'];
 
     /**
      * @ngdoc Controller
@@ -27,22 +27,10 @@
      * @author Dinakaran Santhanam
      * @copyright
      */
-    function HeaderController($scope, $mdSidenav, $mdDialog) {
+    function HeaderController($scope, $mdSidenav, $mdDialog, Utils) {
         var vm = this;
 
-        vm.tabs = [{
-            "id": "new-journey",
-            "name": "New Journey",
-            "url": "app/views/new-journey.html"
-        }, {
-            "id": "passengers",
-            "name": "Saved Passengers",
-            "url": "app/views/passengers.html"
-        }, {
-            "id": "payment",
-            "name": "Payment Details",
-            "url": "app/views/payment.html"
-        }]
+        vm.tabs = Utils.getTabs();
 
         vm.toggleSidenav = function(menuId) {
             $mdSidenav(menuId).toggle();

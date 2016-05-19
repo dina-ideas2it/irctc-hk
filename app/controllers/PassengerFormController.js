@@ -15,7 +15,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  PassengerFormController.$inject = ['$scope', '$mdDialog', 'DataService', 'Utils'];
+  PassengerFormController.$inject = ['$scope', '$mdDialog', 'DataService', 'Utils', '$rootScope'];
 
   /**
    * @ngdoc Controller
@@ -27,7 +27,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  function PassengerFormController($scope, $mdDialog, DataService, Utils) {
+  function PassengerFormController($scope, $mdDialog, DataService, Utils, $rootScope) {
     var vm = this;
 
     vm.passengers = [];
@@ -56,7 +56,9 @@
 
     vm.savePassengers = function() {
       var passengers = angular.fromJson(angular.toJson(vm.passengers));
-      DataService.addPassengers(passengers);
+      DataService.addPassengers(passengers, function success(){
+        $rootScope.$broadcast("update:passengersList");
+      });
 
     //  DataService.addPassenger();
       $mdDialog.hide();
@@ -67,7 +69,8 @@
         "name": "",
         "gender": "",
         "age": "",
-        "berthType": " "
+        "berthType": " ",
+        "id" : Utils.guid()
       };
       vm.passengers.push(passenger);
     };

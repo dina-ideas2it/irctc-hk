@@ -15,7 +15,7 @@
      * @author Dinakaran Santhanam
      * @copyright
      */
-    AppController.$inject = ['$scope'];
+    AppController.$inject = ['$scope', 'Utils'];
 
     /**
      * @ngdoc Controller
@@ -27,14 +27,19 @@
      * @author Dinakaran Santhanam
      * @copyright
      */
-    function AppController($scope) {
+    function AppController($scope, Utils) {
 
       var vm = this;
 
       vm.tab = {};
 
       $scope.$on("activateTab", function(targetScope, tab){
-        console.log(tab);
+        var tabs = Utils.getTabs();
+        for(var i = 0;i<tabs.length;i++){
+          if(tab.id == tabs[i].id){
+            tab.index = i;
+          }
+        }
         vm.tab = tab;
       });
 

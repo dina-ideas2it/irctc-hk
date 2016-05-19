@@ -3,23 +3,26 @@
   <div flex="70">
   <md-card>
     <md-card-content>
-      <h2>Passengers</h2>
+      <h2 ng-if="plCtrl.passengers.length <= 0">Passengers</h2>
+      <h2 ng-if="plCtrl.passengers.length > 0 ">{{plCtrl.passengers.length}} Passengers saved for Journey</h2>
       <md-divider></md-divider>
       <md-list>
-          <md-list-item class="md-3-line" ng-repeat="passenger in plCtrl.passengers track by $index">
+          <md-list-item ng-click="plCtrl.addPassengersToJourney(passenger.id)" class="md-3-line" ng-repeat="passenger in plCtrl.syncedPassengers track by passenger.id">
             <user-avatar></user-avatar>
             <div class="md-list-item-text" layout="column">
               <h3>{{ passenger.name }}</h3>
               <h4>Age {{ passenger.age }}</h4>
               <p>{{ plCtrl.genders[passenger.gender] }}</p>
-              <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+              <md-checkbox ng-click="plCtrl.addPassengersToJourney(passenger.id)"
+                ng-checked="plCtrl.passengers.indexOf(passenger.id) > -1"
+                 class="md-secondary"></md-checkbox>
             </div>
           </md-list-item>
         <md-divider></md-divider>
         <md-item layout class="inset">
-          <md-button layout layout-align="start center" flex class="md-primary">
+          <md-button layout layout-align="start center" flex class="md-primary" ng-click="plCtrl.goToPaymentTab()">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-            More
+            Next
           </md-button>
         </md-item>
       </md-list>

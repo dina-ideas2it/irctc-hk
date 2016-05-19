@@ -15,7 +15,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  JourneyController.$inject = ['$scope', '$filter', '$mdSidenav', '$mdDialog', 'DataService'];
+  JourneyController.$inject = ['$scope', '$filter', '$mdSidenav', '$mdDialog', 'DataService', 'Utils'];
 
   /**
    * @ngdoc Controller
@@ -27,7 +27,7 @@
    * @author Dinakaran Santhanam
    * @copyright
    */
-  function JourneyController($scope, $filter, $mdSidenav, $mdDialog, DataService) {
+  function JourneyController($scope, $filter, $mdSidenav, $mdDialog, DataService, Utils) {
     var vm = this;
 
     vm.journey = {};
@@ -100,6 +100,8 @@
       vm.journey.journeyDate = $filter('date')(vm.journey.boardingDate, 'dd-MM-yyyy');
       console.log(JSON.stringify(vm.journey));
       DataService.saveJourney(vm.journey);
+      Utils.showToast("Journey Details saved");
+      $scope.$emit("activateTab", Utils.getTabs()[1]);
     }
 
     function init() {

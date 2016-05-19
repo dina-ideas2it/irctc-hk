@@ -30,6 +30,7 @@
   function PassengerListController($scope, $mdDialog, DataService, Utils) {
     var vm = this;
 
+    vm.syncedPassengers = [];
     vm.passengers = [];
 
     vm.genders = {
@@ -51,6 +52,10 @@
       vm.showPassengersForm(param);
     });
 
+    $scope.$on("update:passengersList", function($evt, param){
+      getPassengers();
+    });
+
     vm.showPassengersForm = function(ev) {
       $mdDialog.show({
           controller: 'PassengerFormController',
@@ -66,10 +71,31 @@
         });
     };
 
-    function init() {
-      DataService.getPassengers(function(data) {
-        vm.passengers = data;
+
+    vm.addPassengersToJourney = function(passengerId){
+      var index = vm.passengers.indexOf(passengerId);
+      if(index > -1){
+        vm.passengers.splice(index, 1);
+      }else{
+        vm.passengers.push(passengerId);
+      }
+      DataService.addJourneyPassengers(vm.passengers, function(){
+        console.log("Journey Passenger saved");
       })
+    }
+
+    vm.goToPaymentTab = function(){
+      $scope.$emit("activateTab", Utils.getTabs()[2]);
+    }
+
+    function getPassengers(){
+      DataService.getPassengers(function(data) {
+        vm.syncedPassengers = data;
+      })
+    }
+
+    function init() {
+      getPassengers();
     }
 
     init();
