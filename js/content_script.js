@@ -82,17 +82,19 @@ function makeItPay(){
 }
 
 function activateAutoFill(url, journey){
-  if(url == "https://www.irctc.co.in/eticketing/loginHome.jsf"){
+  if(document.querySelector(".loginCaptcha") !== null){
     filluserCred(journey);
-} else if(url=="https://www.irctc.co.in/eticketing/home" || url == "https://www.irctc.co.in/eticketing/loginConfirm.jsf"){
+  } else if(document.querySelector("input[name=\"jpform:journeyDateInputDate\"]").value !== null
+    && document.querySelector("div[id=\"avlAndFareForm:trainSchedPanel\"]") === null){
     fillStations(journey);
-  } else if(url == "https://www.irctc.co.in/eticketing/mainpage.jsf" ||  url.indexOf("https://www.irctc.co.in/eticketing/trainbetweenstns.jsf") > -1){
+  } else if(document.querySelector("div[id=\"avlAndFareForm:trainSchedPanel\"]") !== null){
     if($("#avlAndFareForm").length > 0){
       getBookNowLink(journey);
-    }else if($("#addPassengerForm").length > 0){
+    }
+  } else if($("#addPassengerForm").length > 0){
       fillPass(journey);
     }
-  } else if(url.indexOf("https://www.irctc.co.in/eticketing/jpInput.jsf") > -1){
+   else if(document.querySelector("table#journeySummaryTable") !== null){
     makeItPay();
   }
 }

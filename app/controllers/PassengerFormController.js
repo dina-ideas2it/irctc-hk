@@ -32,32 +32,32 @@
 
     vm.passengers = [];
     vm.berthTypes = [{
-      "value": " ",
-      "label": "No Preference"
+      'value': ' ',
+      'label': 'No Preference'
     }, {
-      "value": "LB",
-      "label": "LOWER"
+      'value': 'LB',
+      'label': 'LOWER'
     }, {
-      "value": "MB",
-      "label": "MIDDLE"
+      'value': 'MB',
+      'label': 'MIDDLE'
     }, {
-      "value": "UB",
-      "label": "UPPER"
+      'value': 'UB',
+      'label': 'UPPER'
     }, {
-      "value": "SIDE LOWER",
-      "label": "SL"
+      'value': 'SIDE LOWER',
+      'label': 'SL'
     }, {
-      "value": "SIDE UPPER",
-      "label": "SU"
+      'value': 'SIDE UPPER',
+      'label': 'SU'
     }, {
-      "value": "WINDOW SIDE",
-      "label": "WS"
+      'value': 'WINDOW SIDE',
+      'label': 'WS'
     }];
 
     vm.savePassengers = function() {
       var passengers = angular.fromJson(angular.toJson(vm.passengers));
       DataService.addPassengers(passengers, function success(){
-        $rootScope.$broadcast("update:passengersList");
+        $rootScope.$broadcast('update:passengersList');
       });
 
     //  DataService.addPassenger();
@@ -66,11 +66,11 @@
 
     vm.addPassenger = function() {
       var passenger = {
-        "name": "",
-        "gender": "",
-        "age": "",
-        "berthType": " ",
-        "id" : Utils.guid()
+        'name': '',
+        'gender': '',
+        'age': '',
+        'berthType': ' ',
+        'id' : Utils.guid()
       };
       vm.passengers.push(passenger);
     };

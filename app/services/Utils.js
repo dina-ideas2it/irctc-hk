@@ -36,7 +36,7 @@
 
         function validatePassenger(passenger){
           if(passenger.name != ''){
-            passenger.message = "Name is mandatory"
+            passenger.message = 'Name is mandatory'
             passesnger.valid = false;
           }
           return passenger;
@@ -54,17 +54,17 @@
 
         function getTabs(){
           return [{
-              "id": "new-journey",
-              "name": "New Journey",
-              "url": "app/views/new-journey.html"
+              'id': 'new-journey',
+              'name': 'New Journey',
+              'url': 'app/views/new-journey.html'
           }, {
-              "id": "passengers",
-              "name": "Saved Passengers",
-              "url": "app/views/passengers.html"
+              'id': 'passengers',
+              'name': 'Saved Passengers',
+              'url': 'app/views/passengers.html'
           }, {
-              "id": "payment",
-              "name": "Payment Details",
-              "url": "app/views/payment.html"
+              'id': 'payment',
+              'name': 'Payment Details',
+              'url': 'app/views/payment.html'
           }];
         }
 
@@ -73,10 +73,10 @@
             $mdToast.simple()
               .textContent(message)
               .position({
-                "left" : true,
-                "right" : false,
-                "top" : false,
-                "bottom" : true
+                'left' : true,
+                'right' : false,
+                'top' : false,
+                'bottom' : true
               })
               .highlightAction(false)
               .hideDelay(6000)

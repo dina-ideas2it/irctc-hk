@@ -34,25 +34,25 @@
     vm.passengers = [];
 
     vm.genders = {
-      "F": "Female",
-      "M": "Male"
+      'F': 'Female',
+      'M': 'Male'
     }
 
     vm.berths = {
-      " ": "No Preference",
-      "LB": "Lower",
-      "MB": "Middle",
-      "UB": "Upper",
-      "SL": "Side Lower",
-      "SU": "Side Upper",
-      "WS": "Window"
+      ' ': 'No Preference',
+      'LB': 'Lower',
+      'MB': 'Middle',
+      'UB': 'Upper',
+      'SL': 'Side Lower',
+      'SU': 'Side Upper',
+      'WS': 'Window'
     };
 
-    $scope.$on("fabAction:passengers", function($evt, param){
+    $scope.$on('fabAction:passengers', function($evt, param){
       vm.showPassengersForm(param);
     });
 
-    $scope.$on("update:passengersList", function($evt, param){
+    $scope.$on('update:passengersList', function($evt, param){
       getPassengers();
     });
 
@@ -65,7 +65,7 @@
         //  fullscreen : true
         })
         .then(function(answer) {
-          $scope.alert = 'You said the information was "' + answer + '".';
+          $scope.alert = 'You said the information was \'' + answer + '\'.';
         }, function() {
           $scope.alert = 'You cancelled the dialog.';
         });
@@ -80,12 +80,12 @@
         vm.passengers.push(passengerId);
       }
       DataService.addJourneyPassengers(vm.passengers, function(){
-        console.log("Journey Passenger saved");
+        console.log('Journey Passenger saved');
       })
     }
 
     vm.goToPaymentTab = function(){
-      $scope.$emit("activateTab", Utils.getTabs()[2]);
+      $scope.$emit('activateTab', Utils.getTabs()[2]);
     }
 
     function getPassengers(){
